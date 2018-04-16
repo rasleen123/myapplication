@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/hehe">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Log In"
+        android:textColor="#fff"
+        android:textSize="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:id="@+id/textt"
+        />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="133dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:hint=" email id"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#000" />
+
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_below="@+id/email"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:hint=" password"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:imeOptions="actionNext"
+        android:inputType="textPassword"
+        android:textColorHint="#000" />
+
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="99dp"
+        android:background="@drawable/stroke"
+        android:text="log in"
+        android:onClick="do_login"
+        android:textColor="#fff" />
+
+
+</RelativeLayout>
