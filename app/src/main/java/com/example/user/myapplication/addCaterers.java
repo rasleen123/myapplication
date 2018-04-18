@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,14 +34,13 @@ public class addCaterers extends AppCompatActivity {
         caterer_recycler.setLayoutManager(new LinearLayoutManager(addCaterers.this , LinearLayoutManager.VERTICAL, false));
     }
 
-    public void add_caterers_details(View view) {
+    public void add_caterer_Details(View view) {
 
         startActivity( new Intent(addCaterers.this , catererDetails.class));
     }
     public void get_caterer()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email=firebase.getCurrentUser().getEmail();
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
         data.getReference().child("caterer").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -55,7 +56,11 @@ public class addCaterers extends AppCompatActivity {
                     caterer_detail details = data.getValue(caterer_detail.class);
                     System.out.println("rrrrrr");
                     caterer_list.add(details);
+                    int listSize = caterer_list.size();
 
+                    for (int i = 0; i<listSize; i++){
+                        Log.i("Member name: ", String.valueOf(caterer_list.get(i)));
+                    }
                     Adapter adapter = new Adapter();
 
                     caterer_recycler.setAdapter(adapter);
@@ -80,11 +85,12 @@ public class addCaterers extends AppCompatActivity {
     public class view_holder extends RecyclerView.ViewHolder{
 
         TextView caterer_name,caterer_loc ;
-
+        LinearLayout caterer_lay;
         public view_holder(View itemView) {
             super(itemView);
 
             caterer_name = itemView.findViewById(R.id.name);
+            caterer_lay=itemView.findViewById(R.id.caterer_lay);
             caterer_loc = itemView.findViewById(R.id.loc);
         }
     }
@@ -103,10 +109,25 @@ public class addCaterers extends AppCompatActivity {
         @Override
         public void onBindViewHolder(view_holder holder, int position) {
 
-            caterer_detail data = caterer_list.get(position);
 
+            final caterer_detail data=caterer_list.get(position);
             holder.caterer_name.setText(data.caterername);
             holder.caterer_loc.setText(data.catererloc);
+            holder.caterer_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String caterername=data.caterername;
+                    String catererloc=data.catererloc;
+                    String catererservice=data.catererservice;
+                    int catererprice=data.catererprice;
+                    Intent i=new Intent(addCaterers.this,updatecaterer.class);
+                    i.putExtra("caterername",caterername);
+                    i.putExtra("catererloc",catererloc);
+                    i.putExtra("catererservices",catererservice);
+                    i.putExtra("catererprice",catererprice);
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

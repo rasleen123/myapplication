@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +40,7 @@ public class addSalon extends AppCompatActivity {
     public void get_Salon()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email=firebase.getCurrentUser().getEmail();
+      
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
         data.getReference().child("salon").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,11 +81,12 @@ public class addSalon extends AppCompatActivity {
     public class view_holder extends RecyclerView.ViewHolder{
 
         TextView Salon_name,Salon_loc ;
-
+LinearLayout salon_lay;
         public view_holder(View itemView) {
             super(itemView);
 
             Salon_name = itemView.findViewById(R.id.name);
+            salon_lay = itemView.findViewById(R.id.salon_lay);
             Salon_loc = itemView.findViewById(R.id.loc);
         }
     }
@@ -104,9 +106,25 @@ public class addSalon extends AppCompatActivity {
         public void onBindViewHolder(view_holder holder, int position) {
 
 
-            salon_details data=Salon_list.get(position);
+            final salon_details data=Salon_list.get(position);
             holder.Salon_name.setText(data.salonname);
             holder.Salon_loc.setText(data.salonloc);
+            holder.salon_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String salonname=data.salonname;
+                    String salonloc=data.salonloc;
+                    String salonservice=data.salonservice;
+                    int salonprice=data.salonprice;
+
+                    Intent i=new Intent(addSalon.this,updatesalon.class);
+                    i.putExtra("salonname",salonname);
+                    i.putExtra("salonloc",salonloc);
+                    i.putExtra("salonservices",salonservice);
+                    i.putExtra("salonprice",salonprice);
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

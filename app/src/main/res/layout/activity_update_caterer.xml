@@ -6,24 +6,24 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dj2"
+    android:background="@drawable/caterer"
     android:orientation="vertical">
 
 
     <EditText
-        android:id="@+id/et_djname"
+        android:id="@+id/et_caterername"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/rectangle"
         android:gravity="center"
-        android:hint="Dj name"
+        android:hint="caterer name"
         android:textColorHint="#000" />
 
 
 
     <EditText
-        android:id="@+id/et_djloc"
+        android:id="@+id/et_catererloc"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="50dp"
@@ -33,7 +33,7 @@
         android:textColorHint="#000" />
 
     <EditText
-        android:id="@+id/et_djservices"
+        android:id="@+id/et_catererservices"
         android:layout_width="match_parent"
         android:layout_height="30dp"
 
@@ -52,12 +52,12 @@
         android:background="@drawable/rectangle"
         android:gravity="center"
         android:hint="price"
-        android:id="@+id/et_djprice"
+        android:id="@+id/et_catererprice"
 
         android:textColorHint="#000" />
 
     <Button
-        android:id="@+id/save_dj"
+        android:id="@+id/save_caterer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/price"
@@ -67,7 +67,7 @@
         android:layout_marginTop="45dp"
         android:text=" save"
         android:layout_gravity="center"
-        android:onClick="update_dj"
+        android:onClick="update_caterer"
 
         />
 </LinearLayout>

@@ -40,7 +40,7 @@ public class addDj extends AppCompatActivity {
     public void get_dj()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email=firebase.getCurrentUser().getEmail();
+
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
         data.getReference().child("dj").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -86,7 +86,7 @@ LinearLayout dj_lay;
             super(itemView);
 
             dj_name = itemView.findViewById(R.id.name);
-dj_lay=itemView.findViewById(R.id.dj_lay);
+            dj_lay=itemView.findViewById(R.id.dj_lay);
             dj_loc = itemView.findViewById(R.id.loc);
         }
     }

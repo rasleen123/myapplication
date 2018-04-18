@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hehe">
+    android:background="@drawable/wow">
 
 
     <Button
@@ -20,6 +18,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="55dp"
         android:text=" venue's"
+        android:onClick="open_veneue"
         />
 
 
@@ -32,7 +31,8 @@
         android:layout_below="@+id/add_button"
         android:layout_marginEnd="37dp"
         android:layout_marginRight="37dp"
-        android:text="decoraters"
+        android:text=" decoraters"
+        android:onClick="open_decorator"
         />
 
     <Button
@@ -44,9 +44,8 @@
         android:layout_below="@+id/add_decoraters"
         android:layout_marginTop="25dp"
         android:text="caterers"
+        android:onClick="add_caterers"
         />
-
-
 
     <Button
         android:id="@+id/add_dj"
@@ -56,6 +55,7 @@
         android:layout_alignRight="@+id/add_decoraters"
         android:layout_below="@+id/add_caterers"
         android:text=" Dj"
+        android:onClick="add_Dj"
         />
 
     <Button
@@ -67,6 +67,7 @@
         android:layout_below="@+id/add_dj"
         android:layout_marginTop="20dp"
         android:text=" photographer's"
+        android:onClick="add_photographers"
         />
 
     <Button
@@ -78,6 +79,7 @@
         android:layout_below="@+id/add_photographer"
         android:layout_marginTop="31dp"
         android:text=" designers"
+        android:onClick="add_designers"
         />
 
     <Button
@@ -88,7 +90,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/add_caterers"
         android:layout_marginBottom="21dp"
-        android:text=" saloon's"
+        android:text=" salon's"
+        android:onClick="add_salon"
         />
 
 </RelativeLayout>

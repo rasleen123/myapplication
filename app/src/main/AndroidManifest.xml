@@ -16,12 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserLogin" />
-        <activity android:name=".userLoginStep2" />
-        <activity android:name=".adminLogin" />
-        <activity android:name=".adminLoginStep2" />
-        <activity android:name=".homepageuser" />
-        <activity android:name=".homepageadmin" />
+        <activity android:name=".updatevenue" />
+        <activity android:name=".updatesalon" />
+        <activity android:name=".updatedecorater" />
+        <activity android:name=".updatedesigner" />
+        <activity android:name=".updatephotographer" />
+        <activity android:name=".updatecaterer" />
         <activity android:name=".userlogin" />
         <activity android:name=".adminlogin" />
         <activity android:name=".MainActivity" />
@@ -40,7 +40,9 @@
         <activity android:name=".designerDetails" />
         <activity android:name=".addSalon" />
         <activity android:name=".salonDetails" />
-        <activity android:name=".updateDj"></activity>
+        <activity android:name=".updateDj" />
+        <activity android:name=".stp2User" />
+        <activity android:name=".viewVenues"></activity>
     </application>
 
 </manifest>

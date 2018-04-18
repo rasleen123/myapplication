@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main2"
@@ -18,8 +16,8 @@
         android:layout_marginLeft="44dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="55dp"
-        android:text=" add caterers"
-        android:onClick="add_caterer_Details"
+        android:text=" add venue's"
+        android:onClick="add_venue_details"
         />
 
     <android.support.v7.widget.RecyclerView
@@ -27,9 +25,8 @@
         android:layout_below="@id/add_button"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:id="@+id/caterers_recycler">
+        android:id="@+id/venue_recycler">
 
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
-

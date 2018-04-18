@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,12 +81,13 @@ public class addDesigners extends AppCompatActivity {
     public class view_holder extends RecyclerView.ViewHolder{
 
         TextView designers_name,designers_loc ;
-
+LinearLayout designer_lay;
         public view_holder(View itemView) {
             super(itemView);
 
             designers_name = itemView.findViewById(R.id.name);
             designers_loc = itemView.findViewById(R.id.loc);
+            designer_lay =itemView.findViewById(R.id.designer_lay);
         }
     }
 
@@ -104,9 +106,25 @@ public class addDesigners extends AppCompatActivity {
         public void onBindViewHolder(view_holder holder, int position) {
 
 
-            designer_detail data=designers_list.get(position);
+            final designer_detail data=designers_list.get(position);
             holder.designers_name.setText(data.designername);
             holder.designers_loc.setText(data.designerloc);
+            holder.designer_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String designername = data.designername;
+                    String designerloc = data.designerloc;
+                    String designerservice = data.designerservice;
+                    int designerprice = data.designerprice;
+
+                    Intent i = new Intent(addDesigners.this, updatedesigner.class);
+                    i.putExtra("designername", designername);
+                    i.putExtra("designerloc", designerloc);
+                    i.putExtra("designerservices", designerservice);
+                    i.putExtra("designerprice", designerprice);
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +40,7 @@ public class addPhotographer extends AppCompatActivity {
     public void get_photographer()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email=firebase.getCurrentUser().getEmail();
+       
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
         data.getReference().child("photographer").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,12 +81,15 @@ public class addPhotographer extends AppCompatActivity {
     public class view_holder extends RecyclerView.ViewHolder{
 
         TextView photographer_name,photographer_loc ;
-
+LinearLayout photographer_lay;
         public view_holder(View itemView) {
             super(itemView);
 
             photographer_name = itemView.findViewById(R.id.name);
+
             photographer_loc = itemView.findViewById(R.id.loc);
+            photographer_lay = itemView.findViewById(R.id.photographer_lay);
+
         }
     }
 
@@ -104,9 +108,25 @@ public class addPhotographer extends AppCompatActivity {
         public void onBindViewHolder(view_holder holder, int position) {
 
 
-            photographer_details data=photographer_list.get(position);
+            final photographer_details data=photographer_list.get(position);
             holder.photographer_name.setText(data.photographername);
             holder.photographer_loc.setText(data.photographerloc);
+            holder.photographer_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String photographername=data.photographername;
+                    String photographerloc=data.photographerloc;
+                    String photographerservice=data.photographerservice;
+                    int photographerprice=data.photographerprice;
+
+                    Intent i=new Intent(addPhotographer.this,updatephotographer.class);
+                    i.putExtra("photographername",photographername);
+                    i.putExtra("photographerloc",photographerloc);
+                    i.putExtra("photographerservices",photographerservice);
+                    i.putExtra("photographerprice",photographerprice);
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

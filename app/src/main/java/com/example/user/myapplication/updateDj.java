@@ -36,7 +36,7 @@ public class updateDj extends AppCompatActivity {
     }
 
 
-    public void save_dj(View view) {
+    public void update_dj(View view) {
 
         djname = et_djname.getText().toString();
         djloc = et_djloc.getText().toString();

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +40,7 @@ public class addVenue extends AppCompatActivity {
     public void get_venue()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email=firebase.getCurrentUser().getEmail();
+
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
         data.getReference().child("venue").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,12 +81,13 @@ System.out.println("rrrrrr");
     public class view_holder extends RecyclerView.ViewHolder{
 
         TextView venue_name,venue_loc ;
-
+LinearLayout venue_lay;
         public view_holder(View itemView) {
             super(itemView);
 
             venue_name = itemView.findViewById(R.id.name);
             venue_loc = itemView.findViewById(R.id.loc);
+            venue_lay = itemView.findViewById(R.id.venue_lay);
         }
     }
 
@@ -103,11 +105,23 @@ System.out.println("rrrrrr");
         @Override
         public void onBindViewHolder(view_holder holder, int position) {
 
-            venue_details data = venue_list.get(position);
-
+            final venue_details data = venue_list.get(position);
             holder.venue_name.setText(data.venuename);
             holder.venue_loc.setText(data.venue_loc);
-        }
+            holder.venue_lay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String venuename=data.venuename;
+                    String venueloc=data.venue_loc;
+                    int venueprice=data.price;
+
+                    Intent i=new Intent(addVenue.this,updatevenue.class);
+                    i.putExtra("venuename",venuename);
+                    i.putExtra("venueloc",venueloc);
+                    i.putExtra("venueprice",venueprice);
+                    startActivity(i);
+                }
+            }); }
 
         @Override
         public int getItemCount() {
