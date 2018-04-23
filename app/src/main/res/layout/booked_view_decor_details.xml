@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wd2"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_decoratername"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Decorater name"
+        android:textColorHint="#000" />
+
+
+
+    <TextView
+        android:id="@+id/tv_decoraterloc"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:hint=" Decorater location"
+        android:textColorHint="#000" />
+
+    <TextView
+        android:id="@+id/tv_decoraterservices"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:hint="services"
+        android:textColorHint="#000" />
+
+
+    <TextView
+        android:id="@+id/tv_decoraterprice"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rectangle"
+        android:gravity="center"
+        android:hint="price"
+
+        android:textColorHint="#000" />
+
+
+</LinearLayout>
+

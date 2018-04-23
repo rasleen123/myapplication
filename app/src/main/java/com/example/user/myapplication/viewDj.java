@@ -19,43 +19,47 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class viewVenues extends AppCompatActivity {
-    ArrayList<venue_details> venue_list;
-    RecyclerView venue_recycler;
+public class viewDj extends AppCompatActivity {
+    ArrayList<dj_detail> dj_list;
+    RecyclerView dj_recycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_venues);
-        venue_list = new ArrayList<>();
+        setContentView(R.layout.activity_view_dj);
+        dj_list = new ArrayList<>();
 
-        venue_recycler = findViewById(R.id.venue_recycler);
+        dj_recycler = findViewById(R.id.dj_recycler);
 
-        venue_recycler.setLayoutManager(new LinearLayoutManager(viewVenues.this , LinearLayoutManager.VERTICAL, false));
+        dj_recycler.setLayoutManager(new LinearLayoutManager(viewDj.this , LinearLayoutManager.VERTICAL, false));
     }
 
-    public void get_venue()
+    public void skip_dj(View view) {
+
+        startActivity( new Intent(viewDj.this , viewPhotographers.class));
+    }
+    public void get_dj()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
 
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child("venue").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child("dj").addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                venue_list.clear();
+                dj_list.clear();
 
 
                 for (DataSnapshot data : dataSnapshot.getChildren())
                 {
-                    venue_details details = data.getValue(venue_details.class);
+                    dj_detail details = data.getValue(dj_detail.class);
                     System.out.println("rrrrrr");
-                    venue_list.add(details);
+                    dj_list.add(details);
 
                     Adapter adapter = new Adapter();
 
-                    venue_recycler.setAdapter(adapter);
+                    dj_recycler.setAdapter(adapter);
                 }
             }
 
@@ -71,19 +75,19 @@ public class viewVenues extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        get_venue();
+        get_dj();
     }
 
     public class view_holder extends RecyclerView.ViewHolder{
 
-        TextView venue_name,venue_loc ;
-        LinearLayout venue_lay;
+        TextView dj_name,dj_loc ;
+        LinearLayout dj_lay;
         public view_holder(View itemView) {
             super(itemView);
 
-            venue_name = itemView.findViewById(R.id.name);
-            venue_loc = itemView.findViewById(R.id.loc);
-            venue_lay = itemView.findViewById(R.id.venue_lay);
+            dj_name = itemView.findViewById(R.id.name);
+            dj_lay=itemView.findViewById(R.id.dj_lay);
+            dj_loc = itemView.findViewById(R.id.loc);
         }
     }
 
@@ -93,7 +97,7 @@ public class viewVenues extends AppCompatActivity {
         @Override
         public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.venue_cell,parent , false ));
+            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.dj_cell,parent , false ));
 
             return v ;
         }
@@ -101,27 +105,31 @@ public class viewVenues extends AppCompatActivity {
         @Override
         public void onBindViewHolder(view_holder holder, int position) {
 
-            final venue_details data = venue_list.get(position);
-            holder.venue_name.setText(data.venuename);
-            holder.venue_loc.setText(data.venue_loc);
-            holder.venue_lay.setOnClickListener(new View.OnClickListener() {
+
+            final dj_detail data=dj_list.get(position);
+            holder.dj_name.setText(data.djname);
+            holder.dj_loc.setText(data.djloc);
+            holder.dj_lay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String venuename=data.venuename;
-                    String venueloc=data.venue_loc;
-                    int venueprice=data.price;
+                    String djname=data.djname;
+                    String djloc=data.djloc;
+                    String djservice=data.djservice;
+                    int djprice=data.djprice;
 
-                    Intent i=new Intent(viewVenues.this,viewVenueDetails.class);
-                    i.putExtra("venuename",venuename);
-                    i.putExtra("venueloc",venueloc);
-                    i.putExtra("venueprice",venueprice);
+                    Intent i=new Intent(viewDj.this,viewDjDetails.class);
+                    i.putExtra("djname",djname);
+                    i.putExtra("djloc",djloc);
+                    i.putExtra("djservices",djservice);
+                    i.putExtra("djprice",djprice);
                     startActivity(i);
                 }
-            }); }
+            });
+        }
 
         @Override
         public int getItemCount() {
-            return venue_list.size();
+            return dj_list.size();
         }
     }
 }

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wow"
+    tools:context=".view_book_event">
+
+
+    <Button
+        android:id="@+id/venue_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="55dp"
+        android:text=" venue's"
+        android:onClick="venue"
+        />
+
+
+    <Button
+        android:id="@+id/decoraters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/venue_button"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:text=" decoraters"
+        android:onClick="decorator"
+        />
+
+    <Button
+        android:id="@+id/caterers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/venue_button"
+        android:layout_alignStart="@+id/venue_button"
+        android:layout_below="@+id/decoraters"
+        android:layout_marginTop="25dp"
+        android:text="caterers"
+        android:onClick="caterers"
+        />
+
+    <Button
+        android:id="@+id/dj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/decoraters"
+        android:layout_alignRight="@+id/decoraters"
+        android:layout_below="@+id/caterers"
+        android:text=" Dj"
+        android:onClick="Dj"
+        />
+
+    <Button
+        android:id="@+id/photographer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/caterers"
+        android:layout_alignStart="@+id/caterers"
+        android:layout_below="@+id/dj"
+        android:layout_marginTop="20dp"
+        android:text=" photographer's"
+        android:onClick="photographers"
+        />
+
+    <Button
+        android:id="@+id/designers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dj"
+        android:layout_alignRight="@+id/dj"
+        android:layout_below="@+id/photographer"
+        android:layout_marginTop="31dp"
+        android:text=" designers"
+        android:onClick="designers"
+        />
+
+    <Button
+        android:id="@+id/saloon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/caterers"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/caterers"
+        android:layout_marginBottom="21dp"
+        android:text=" salon's"
+        android:onClick="salon"
+        />
+
+</RelativeLayout>

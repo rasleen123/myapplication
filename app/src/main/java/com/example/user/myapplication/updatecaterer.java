@@ -33,7 +33,6 @@ public class updatecaterer extends AppCompatActivity {
         et_catererloc.setText(getIntent().getStringExtra("catererloc"));
         et_catererservice.setText(getIntent().getStringExtra("catererservice"));
         et_catererprice.setText(getIntent().getStringExtra("catererprice"));
-        System.out.println();
     }
 
 
@@ -43,12 +42,11 @@ public class updatecaterer extends AppCompatActivity {
         catererloc = et_catererloc.getText().toString();
         price = Integer.parseInt(et_catererprice.getText().toString());
         catererservice=et_catererservice.getText().toString();
-
         if (caterername.length() < 2 ||catererservice.length() < 2 || catererloc.length() < 2 || price == 0 ) {
             Toast.makeText(updatecaterer.this, "Enter values", Toast.LENGTH_SHORT).show();
 
         } else {
-            caterer_detail data = new caterer_detail(caterername, catererloc, catererservice, price);
+            decorator_detail data = new decorator_detail(caterername, catererloc, catererservice, price);
 
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();

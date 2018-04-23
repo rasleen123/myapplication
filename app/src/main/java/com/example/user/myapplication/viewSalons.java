@@ -19,43 +19,47 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class viewVenues extends AppCompatActivity {
-    ArrayList<venue_details> venue_list;
-    RecyclerView venue_recycler;
+public class viewSalons extends AppCompatActivity {
+    ArrayList<salon_details > Salon_list;
+    RecyclerView Salon_recycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_venues);
-        venue_list = new ArrayList<>();
+        setContentView(R.layout.activity_view_salons);
+        Salon_list = new ArrayList<>();
 
-        venue_recycler = findViewById(R.id.venue_recycler);
+        Salon_recycler = findViewById(R.id.Salon_recycler);
 
-        venue_recycler.setLayoutManager(new LinearLayoutManager(viewVenues.this , LinearLayoutManager.VERTICAL, false));
+        Salon_recycler.setLayoutManager(new LinearLayoutManager(viewSalons.this , LinearLayoutManager.VERTICAL, false));
     }
 
-    public void get_venue()
+    public void skip_salon(View view) {
+
+        startActivity( new Intent(viewSalons.this , bookEvent.class));
+    }
+    public void get_Salon()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
 
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child("venue").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child("salon").addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                venue_list.clear();
+                Salon_list.clear();
 
 
                 for (DataSnapshot data : dataSnapshot.getChildren())
                 {
-                    venue_details details = data.getValue(venue_details.class);
+                    salon_details details = data.getValue(salon_details.class);
                     System.out.println("rrrrrr");
-                    venue_list.add(details);
+                    Salon_list.add(details);
 
                     Adapter adapter = new Adapter();
 
-                    venue_recycler.setAdapter(adapter);
+                    Salon_recycler.setAdapter(adapter);
                 }
             }
 
@@ -71,19 +75,19 @@ public class viewVenues extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        get_venue();
+        get_Salon();
     }
 
     public class view_holder extends RecyclerView.ViewHolder{
 
-        TextView venue_name,venue_loc ;
-        LinearLayout venue_lay;
+        TextView Salon_name,Salon_loc ;
+        LinearLayout salon_lay;
         public view_holder(View itemView) {
             super(itemView);
 
-            venue_name = itemView.findViewById(R.id.name);
-            venue_loc = itemView.findViewById(R.id.loc);
-            venue_lay = itemView.findViewById(R.id.venue_lay);
+            Salon_name = itemView.findViewById(R.id.name);
+            salon_lay = itemView.findViewById(R.id.salon_lay);
+            Salon_loc = itemView.findViewById(R.id.loc);
         }
     }
 
@@ -93,7 +97,7 @@ public class viewVenues extends AppCompatActivity {
         @Override
         public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.venue_cell,parent , false ));
+            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.salon_cell,parent , false ));
 
             return v ;
         }
@@ -101,27 +105,31 @@ public class viewVenues extends AppCompatActivity {
         @Override
         public void onBindViewHolder(view_holder holder, int position) {
 
-            final venue_details data = venue_list.get(position);
-            holder.venue_name.setText(data.venuename);
-            holder.venue_loc.setText(data.venue_loc);
-            holder.venue_lay.setOnClickListener(new View.OnClickListener() {
+
+            final salon_details data=Salon_list.get(position);
+            holder.Salon_name.setText(data.salonname);
+            holder.Salon_loc.setText(data.salonloc);
+            holder.salon_lay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String venuename=data.venuename;
-                    String venueloc=data.venue_loc;
-                    int venueprice=data.price;
+                    String salonname=data.salonname;
+                    String salonloc=data.salonloc;
+                    String salonservice=data.salonservice;
+                    int salonprice=data.salonprice;
 
-                    Intent i=new Intent(viewVenues.this,viewVenueDetails.class);
-                    i.putExtra("venuename",venuename);
-                    i.putExtra("venueloc",venueloc);
-                    i.putExtra("venueprice",venueprice);
+                    Intent i=new Intent(viewSalons.this,viewSalonDetails.class);
+                    i.putExtra("salonname",salonname);
+                    i.putExtra("salonloc",salonloc);
+                    i.putExtra("salonservices",salonservice);
+                    i.putExtra("salonprice",salonprice);
                     startActivity(i);
                 }
-            }); }
+            });
+        }
 
         @Override
         public int getItemCount() {
-            return venue_list.size();
+            return Salon_list.size();
         }
     }
 }

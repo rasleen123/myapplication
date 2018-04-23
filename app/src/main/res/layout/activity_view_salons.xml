@@ -3,13 +3,11 @@
     android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wow">
-
-
+    android:background="@drawable/salon">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELECT venue"
+        android:text="SELECT  salon"
         android:textSize="20dp"
         android:textAllCaps="true"
         android:layout_margin="20dp"
@@ -19,15 +17,29 @@
         android:layout_centerHorizontal="true"/>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/venue_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <Button
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/skip_button"
-        android:layout_marginTop="20dp">
+        android:layout_alignParentTop="true"
+        android:onClick="skip_salon"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="55dp"
+        android:text=" skip"
 
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/salon_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/skip_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp">
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
+
+
