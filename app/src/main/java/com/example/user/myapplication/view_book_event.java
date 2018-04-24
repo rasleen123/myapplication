@@ -12,20 +12,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class view_book_event extends AppCompatActivity {
-
+String date,dj,venue,decorater,designer,photographer,salon,caterer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_book_event);
+        date=getIntent().getStringExtra("date");
+                dj=getIntent().getStringExtra("dj");
+                venue=getIntent().getStringExtra("venue");
+                decorater=getIntent().getStringExtra("decorater");
+                designer=getIntent().getStringExtra("designer");
+                photographer=getIntent().getStringExtra("photographer");
+        salon=getIntent().getStringExtra("salon");
+                caterer=getIntent().getStringExtra("caterer");
     }
 
 
     public void venue(View view) {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-        String email = firebase.getCurrentUser().getEmail();
+        String email = firebase.getCurrentUser().getEmail().replace(".","");
         FirebaseDatabase data = FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child(email).child("venue").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child(venue).addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
@@ -60,7 +68,7 @@ public class view_book_event extends AppCompatActivity {
         String email = firebase.getCurrentUser().getEmail();
         FirebaseDatabase data = FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child(email).child("decorater").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child(decorater).addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
@@ -96,7 +104,7 @@ public class view_book_event extends AppCompatActivity {
         String email = firebase.getCurrentUser().getEmail();
         FirebaseDatabase data = FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child(email).child("caterers").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child(caterer).addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
@@ -132,7 +140,7 @@ public class view_book_event extends AppCompatActivity {
         String email = firebase.getCurrentUser().getEmail();
         FirebaseDatabase data = FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child(email).child("dj").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child(dj).addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
@@ -140,18 +148,18 @@ public class view_book_event extends AppCompatActivity {
 
 
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    caterer_detail details = data.getValue(caterer_detail.class);
+                    dj_detail details = data.getValue(dj_detail.class);
                     System.out.println("rrrrrr");
-                    String caterername = details.caterername;
-                    String catererloc = details.catererloc;
-                    String catererservice = details.catererservice;
-                    int catererprice = details.catererprice;
+                    String djname = details.djname;
+                    String djloc = details.djloc;
+                    String djservice = details.djservice;
+                    int djprice = details.djprice;
 
-                    Intent i = new Intent(view_book_event.this, viewbookedCaterersDetails.class);
-                    i.putExtra("caterername", caterername);
-                    i.putExtra("catererloc", catererloc);
-                    i.putExtra("catererservices", catererservice);
-                    i.putExtra("catererprice", catererprice);
+                    Intent i = new Intent(view_book_event.this, viewbookedDjDetails.class);
+                    i.putExtra("djname", djname);
+                    i.putExtra("djloc", djloc);
+                    i.putExtra("djservices", djservice);
+                    i.putExtra("djprice", djprice);
                     startActivity(i);
                 }
             }
@@ -164,11 +172,111 @@ public class view_book_event extends AppCompatActivity {
     }
 
     public void photographers(View view) {
+        FirebaseAuth firebase = FirebaseAuth.getInstance();
+        String email = firebase.getCurrentUser().getEmail();
+        FirebaseDatabase data = FirebaseDatabase.getInstance();
+        System.out.println("rrrr");
+        data.getReference().child(photographer).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    photographer_details details = data.getValue(photographer_details.class);
+                    System.out.println("rrrrrr");
+                    String photographername = details.photographername;
+                    String photographerloc = details.photographerloc;
+                    String photographerservice = details.photographerservice;
+                    int photographerprice = details.photographerprice;
+
+                    Intent i = new Intent(view_book_event.this, viewbookedPhotographerDetails.class);
+                    i.putExtra("photographername", photographername);
+                    i.putExtra("photographerloc", photographerloc);
+                    i.putExtra("photographerservices", photographerservice);
+                    i.putExtra("photographerprice", photographerprice);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void designers(View view) {
+        FirebaseAuth firebase = FirebaseAuth.getInstance();
+        String email = firebase.getCurrentUser().getEmail();
+        FirebaseDatabase data = FirebaseDatabase.getInstance();
+        System.out.println("rrrr");
+        data.getReference().child(designer).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    designer_detail details = data.getValue(designer_detail.class);
+                    System.out.println("rrrrrr");
+                    String designername = details.designername;
+                    String designerloc = details.designerloc;
+                    String designerservice = details.designerservice;
+                    int designerprice = details.designerprice;
+
+                    Intent i = new Intent(view_book_event.this, viewbookedDesignerDetails.class);
+                    i.putExtra("designername", designername);
+                    i.putExtra("designerloc", designerloc);
+                    i.putExtra("designerservices", designerservice);
+                    i.putExtra("designerprice", designerprice);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public void salon(View view) {
+
+        FirebaseAuth firebase = FirebaseAuth.getInstance();
+        String email = firebase.getCurrentUser().getEmail();
+        FirebaseDatabase data = FirebaseDatabase.getInstance();
+        System.out.println("rrrr");
+        data.getReference().child(salon).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    salon_details details = data.getValue(salon_details.class);
+                    System.out.println("rrrrrr");
+                    String salonname = details.salonname;
+                    String salonloc = details.salonloc;
+                    String salonservice = details.salonservice;
+                    int salonprice = details.salonprice;
+
+                    Intent i = new Intent(view_book_event.this, viewbookedSalonDetails.class);
+                    i.putExtra("salonname", salonname);
+                    i.putExtra("salonloc", salonloc);
+                    i.putExtra("salonservices", salonservice);
+                    i.putExtra("salonprice", salonprice);
+                    startActivity(i);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -39,7 +39,7 @@ public class userlogin extends AppCompatActivity {
 
                 if(task.isSuccessful())
                 {
-                    startActivity( new Intent(userlogin.this , stp2admin.class));
+                    startActivity( new Intent(userlogin.this , user_home.class));
 
 
                 }
@@ -50,6 +50,11 @@ public class userlogin extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    public void user_sign_up(View view) {
+        startActivity( new Intent(userlogin.this ,stp2User.class));
 
     }
 }

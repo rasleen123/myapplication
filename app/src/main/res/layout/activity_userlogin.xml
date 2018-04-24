@@ -44,6 +44,7 @@
         android:layout_marginTop="59dp"
         android:background="@drawable/stroke"
         android:text="log in"
+        android:onClick="do_login"
         android:textColor="#fff" />
 
     <Button
@@ -53,6 +54,7 @@
         android:layout_below="@id/register"
         android:layout_centerInParent="true"
         android:text="Sign up"
+        android:onClick="user_sign_up"
         android:textColor="#fff"
         android:layout_margin="20dp"
         />

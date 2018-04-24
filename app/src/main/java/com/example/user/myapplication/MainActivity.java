@@ -25,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(MainActivity.this , adminlogin.class));
     }
+
+    public void user_login(View view) {
+        startActivity(new Intent(MainActivity.this , userlogin.class));
+    }
 }

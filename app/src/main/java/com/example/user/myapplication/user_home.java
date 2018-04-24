@@ -15,8 +15,9 @@ public class user_home extends AppCompatActivity {
     }
 
     public void view(View view) {
-        startActivity( new Intent(user_home.this , view_book_event.class));
+        startActivity( new Intent(user_home.this , booked_list.class));
     }
+
 
     public void book(View view) {
         startActivity( new Intent(user_home.this , viewVenues.class));

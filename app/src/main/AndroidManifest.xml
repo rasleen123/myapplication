@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".stp2admin">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
         <activity android:name=".updatecaterer" />
         <activity android:name=".userlogin" />
         <activity android:name=".adminlogin" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".stp2admin" />
         <activity android:name=".userSelectItems" />
         <activity android:name=".addVenue" />
         <activity android:name=".VenueDetails" />
@@ -50,7 +50,6 @@
         <activity android:name=".viewDj" />
         <activity android:name=".viewPhotographers" />
         <activity android:name=".bookEvent" />
-        <activity android:name=".allOptions" />
         <activity android:name=".viewVenueDetails" />
         <activity android:name=".viewDesignerDetails" />
         <activity android:name=".viewDjDetails" />
@@ -60,7 +59,8 @@
         <activity android:name=".viewSalonDetails" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".user_home" />
-        <activity android:name=".view_book_event"></activity>
+        <activity android:name=".view_book_event" />
+        <activity android:name=".booked_list"></activity>
     </application>
 
 </manifest>
