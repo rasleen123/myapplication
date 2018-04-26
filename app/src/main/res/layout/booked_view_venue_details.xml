@@ -30,7 +30,6 @@
         android:id="@+id/tv_venue_loc"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_below="@id/user"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_centerHorizontal="true"

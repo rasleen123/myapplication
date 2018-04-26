@@ -31,7 +31,7 @@ public class updatedecorater extends AppCompatActivity {
 
         et_decoratername.setText(getIntent().getStringExtra("decoratername"));
         et_decoraterloc.setText(getIntent().getStringExtra("decoraterloc"));
-        et_decoraterservice.setText(getIntent().getStringExtra("decoraterservice"));
+        et_decoraterservice.setText(getIntent().getStringExtra("decoraterservices"));
         et_decoraterprice.setText(getIntent().getStringExtra("decoraterprice"));
     }
 

@@ -22,7 +22,7 @@ EditText name,number,email,password,cpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stp2_user);
+        setContentView(R.layout.activity_user_login_step2);
  name=findViewById(R.id.name_et);
     number=findViewById(R.id.number_et);
     email=findViewById(R.id.email_et);

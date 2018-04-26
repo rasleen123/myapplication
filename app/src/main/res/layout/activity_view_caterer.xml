@@ -37,7 +37,7 @@
         android:layout_below="@id/skip_button"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:id="@+id/venue_recycler">
+        android:id="@+id/caterers_recycler">
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

@@ -115,12 +115,12 @@ public class viewDecor extends AppCompatActivity {
                     String decoraterloc = data.decoratorloc;
                     String decoraterservice = data.decoratorservice;
                     int decoraterprice = data.decoratorprice;
-
+System.out.println(decoraterservice+"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
                     Intent i = new Intent(viewDecor.this, viewDecorDetails.class);
                     i.putExtra("decoratername", decoratername);
                     i.putExtra("decoraterloc", decoraterloc);
                     i.putExtra("decoraterservices", decoraterservice);
-                    i.putExtra("decoraterprice", decoraterprice);
+                    i.putExtra("decoraterprice", String.valueOf(decoraterprice));
                     startActivity(i);
                 }
             });

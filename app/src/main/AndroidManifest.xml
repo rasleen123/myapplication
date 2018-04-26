@@ -25,7 +25,6 @@
         <activity android:name=".userlogin" />
         <activity android:name=".adminlogin" />
         <activity android:name=".stp2admin" />
-        <activity android:name=".userSelectItems" />
         <activity android:name=".addVenue" />
         <activity android:name=".VenueDetails" />
         <activity android:name=".addDecoraters" />
