@@ -17,7 +17,7 @@ public class viewbookedvenueDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_venue_details);
+        setContentView(R.layout.booked_view_venue_details);
         tv_venuename = findViewById(R.id.tv_venuename);
         tv_venue_loc = findViewById(R.id.tv_venue_loc);
         tv_venue_loc = findViewById(R.id.tv_venue_loc);

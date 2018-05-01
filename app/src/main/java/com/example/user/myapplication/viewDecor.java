@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.decorator_detail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,13 +30,14 @@ public class viewDecor extends AppCompatActivity {
         setContentView(R.layout.activity_view_decor);
         decorater_list = new ArrayList<>();
 
-        decorater_recycler = findViewById(R.id.decoraters_recycler);
+        decorater_recycler = findViewById(R.id.decor_recycler);
 
         decorater_recycler.setLayoutManager(new LinearLayoutManager(viewDecor.this, LinearLayoutManager.VERTICAL, false));
     }
 
     public void skip_decor(View view) {
-
+        user_home.decorater_loc="Not Booked";
+        user_home.decorater_name="Not Booked";
         startActivity(new Intent(viewDecor.this, viewDesigners.class));
     }
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.designer_detail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +35,8 @@ public class viewDesigners extends AppCompatActivity {
     }
 
     public void skip_designer(View view) {
-
+        user_home.designer_loc="Not Booked";
+        user_home.designer_name="Not Booked";
         startActivity( new Intent(viewDesigners.this , viewDj.class));
     }
     public void get_designers()

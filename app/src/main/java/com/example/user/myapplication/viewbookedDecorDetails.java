@@ -21,7 +21,7 @@ public class viewbookedDecorDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_decor_details);
+        setContentView(R.layout.booked_view_decor_details);
         tv_decoratername = findViewById(R.id.tv_decoratername);
         tv_decoraterloc = findViewById(R.id.tv_decoraterloc);
 

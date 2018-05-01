@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.user.myapplication.data_model.createaccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,21 +24,20 @@ EditText name,number,email,password,cpass;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login_step2);
- name=findViewById(R.id.name_et);
+     name=findViewById(R.id.name_et);
     number=findViewById(R.id.number_et);
     email=findViewById(R.id.email_et);
     password=findViewById(R.id.pass_et);
     cpass=findViewById(R.id.cpass_et);
-    sname=name.getText().toString();
-    snumber=number.getText().toString();
-    semail=email.getText().toString();
-    spassword=password.getText().toString();
-    scpass=cpass.getText().toString();
+
     }
 
     public void register(View view) {
-        createaccount data = new createaccount(sname, snumber, semail,spassword);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        sname=name.getText().toString();
+        snumber=number.getText().toString();
+        semail=email.getText().toString();
+        spassword=password.getText().toString();
+        scpass=cpass.getText().toString();
 
         if (Patterns.EMAIL_ADDRESS.matcher(semail).matches()) {
 
@@ -91,6 +91,9 @@ EditText name,number,email,password,cpass;
                 if (task.isSuccessful()) {
                     Toast.makeText(stp2User.this, "done", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(stp2User.this, user_home.class);
+                    final createaccount data = new createaccount(sname, snumber);
+                    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    database.getReference().child("user").child(semail.replace(".","")).setValue(data);
                     startActivity(i);
                 } else {
                     Toast.makeText(stp2User.this, "error try again", Toast.LENGTH_SHORT).show();
@@ -99,7 +102,7 @@ EditText name,number,email,password,cpass;
         };
 
         f_auth.createUserWithEmailAndPassword(semail, spassword).addOnCompleteListener(listener);
-        database.getReference().child(semail).setValue(data);
+
 
 
     }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.salon_details;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class viewSalons extends AppCompatActivity {
-    ArrayList<salon_details > Salon_list;
+    ArrayList<salon_details> Salon_list;
     RecyclerView Salon_recycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +29,14 @@ public class viewSalons extends AppCompatActivity {
         setContentView(R.layout.activity_view_salons);
         Salon_list = new ArrayList<>();
 
-        Salon_recycler = findViewById(R.id.Salon_recycler);
+        Salon_recycler = findViewById(R.id.salon_recycler);
 
         Salon_recycler.setLayoutManager(new LinearLayoutManager(viewSalons.this , LinearLayoutManager.VERTICAL, false));
     }
 
     public void skip_salon(View view) {
-
+        user_home.salon_loc="Not Booked";
+        user_home.salon_name="Not Booked";
         startActivity( new Intent(viewSalons.this , bookEvent.class));
     }
     public void get_Salon()

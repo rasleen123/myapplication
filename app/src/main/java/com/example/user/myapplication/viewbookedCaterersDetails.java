@@ -21,7 +21,7 @@ public class viewbookedCaterersDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_designer_details);
+        setContentView(R.layout.booked_view_designer_details);
         tv_caterername = findViewById(R.id.tv_caterername);
         tv_catererloc = findViewById(R.id.tv_catererloc);
 

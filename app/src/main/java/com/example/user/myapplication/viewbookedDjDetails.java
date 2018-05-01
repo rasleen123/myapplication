@@ -15,7 +15,7 @@ public class viewbookedDjDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_dj_details);
+        setContentView(R.layout.booked_view_dj_details);
         tv_djname = findViewById(R.id.tv_djname);
         tv_djloc = findViewById(R.id.tv_djloc);
 

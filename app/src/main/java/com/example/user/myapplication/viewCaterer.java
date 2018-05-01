@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.caterer_detail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +36,8 @@ public class viewCaterer extends AppCompatActivity {
     }
 
     public void skip_caterer(View view) {
-
+user_home.caterer_loc="Not Booked";
+user_home.caterer_name="Not Booked";
         startActivity( new Intent(viewCaterer.this , viewDecor.class));
     }
     public void get_caterer()
@@ -124,7 +126,7 @@ public class viewCaterer extends AppCompatActivity {
                     i.putExtra("caterername",caterername);
                     i.putExtra("catererloc",catererloc);
                     i.putExtra("catererservices",catererservice);
-                    i.putExtra("catererprice",catererprice);
+                    i.putExtra("catererprice",String.valueOf(catererprice));
                     startActivity(i);
                 }
             });

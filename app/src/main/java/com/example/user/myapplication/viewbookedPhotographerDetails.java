@@ -15,7 +15,7 @@ public class viewbookedPhotographerDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_photographer_details);
+        setContentView(R.layout.booked_view_photographer_details);
         tv_photographername = findViewById(R.id.tv_photographername);
         tv_photographerloc = findViewById(R.id.tv_photographerloc);
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.dj_detail;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +35,8 @@ public class viewDj extends AppCompatActivity {
     }
 
     public void skip_dj(View view) {
-
+        user_home.dj_loc="Not Booked";
+        user_home.dj_name="Not Booked";
         startActivity( new Intent(viewDj.this , viewPhotographers.class));
     }
     public void get_dj()

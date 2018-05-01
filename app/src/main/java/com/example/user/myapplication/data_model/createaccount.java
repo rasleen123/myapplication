@@ -1,4 +1,4 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.data_model;
 
 import android.icu.text.StringPrepParseException;
 
@@ -6,20 +6,19 @@ import android.icu.text.StringPrepParseException;
  * Created by user on 24-04-2018.
  */
 public class createaccount {
-    public String name,number,email,password;
+    public String name,number;
 
     createaccount()
     {
 
     }
 
-    public createaccount(String name, String number, String email,String password)
+    public createaccount(String name, String number)
 
     {
         this.name = name;
-        this.password=password;
         this.number=number;
-        this.email=email;
+
 
     }
 }

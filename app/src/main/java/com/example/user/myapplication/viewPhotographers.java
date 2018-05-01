@@ -28,13 +28,14 @@ public class viewPhotographers extends AppCompatActivity {
         setContentView(R.layout.activity_view_photographers);
         photographer_list = new ArrayList<>();
 
-        photographer_recycler = findViewById(R.id.photographer_recycler);
+        photographer_recycler = findViewById(R.id.photo_recycler);
 
         photographer_recycler.setLayoutManager(new LinearLayoutManager(viewPhotographers.this , LinearLayoutManager.VERTICAL, false));
     }
 
     public void skip_photo(View view) {
-
+        user_home.photographer_loc="Not Booked";
+        user_home.photographer_name="Not Booked";
         startActivity( new Intent(viewPhotographers.this , viewSalons.class));
     }
     public void get_photographer()

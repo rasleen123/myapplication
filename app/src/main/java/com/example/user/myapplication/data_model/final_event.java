@@ -1,4 +1,4 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.data_model;
 
 /**
  * Created by user on 12-04-2018.
@@ -7,14 +7,14 @@ package com.example.user.myapplication;
 public class final_event{
     public String dj_name , venue_loc,venue_name , dj_loc,decorater_name,decorater_loc,designer_name,designer_loc,photographer_name,photographer_loc,
             salon_name,salon_loc,caterer_name,caterer_loc;
-Long time;
-    final_event ()
+public Long time;
+    public final_event ()
     {
 
     }
 
 
-    final_event (Long time,String dj_name ,String venue_loc,String venue_name ,String dj_loc,String decorater_name,String decorater_loc,String designer_name,String designer_loc,String photographer_name,String photographer_loc,
+    public final_event (Long time,String dj_name ,String venue_loc,String venue_name ,String dj_loc,String decorater_name,String decorater_loc,String designer_name,String designer_loc,String photographer_name,String photographer_loc,
                  String salon_name,String salon_loc,String caterer_name,String caterer_loc)
 
     {

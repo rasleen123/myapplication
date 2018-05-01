@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.user.myapplication.data_model.salon_details;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class addSalon extends AppCompatActivity {
-    ArrayList<salon_details > Salon_list;
+    ArrayList<salon_details> Salon_list;
     RecyclerView Salon_recycler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -21,7 +21,7 @@ public class viewbookedDesignerDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_designer_details);
+        setContentView(R.layout.booked_view_designer_details);
         tv_designername = findViewById(R.id.tv_designername);
         tv_designerloc = findViewById(R.id.tv_designerloc);
 

@@ -1,4 +1,4 @@
-package com.example.user.myapplication;
+package com.example.user.myapplication.data_model;
 
 /**
  * Created by user on 12-04-2018.
@@ -7,14 +7,8 @@ package com.example.user.myapplication;
 public class dj_detail{
     public String djname ,djloc , djservice;
     public int djprice;
-
-    dj_detail()
-    {
-
-    }
-
-
-    dj_detail(String djname , String djloc , String djservice ,int djprice)
+public dj_detail(){}
+    public dj_detail(String djname , String djloc , String djservice ,int djprice)
 
     {
         this.djname =djname ;

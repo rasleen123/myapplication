@@ -15,7 +15,7 @@ public class viewbookedSalonDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_salon_details);
+        setContentView(R.layout.booked_view_salon_details);
         tv_salonname = findViewById(R.id.tv_salonname);
         tv_salonloc = findViewById(R.id.tv_salonlocation);
 
