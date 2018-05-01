@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wow"
+    tools:context=".view_book_event">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="NAME"
+    android:id="@+id/name"
+    android:layout_margin="20dp"
+    android:textSize="30dp"
+    android:textColor="#fff"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call"
+        android:onClick="call_user"
+        android:layout_alignParentRight="true"
+        android:id="@+id/call"
+        android:layout_margin="20dp"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        />
+
+
+    <Button
+        android:id="@+id/venue_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="90dp"
+        android:text=" venue's"
+        android:onClick="venue"
+        />
+
+
+    <Button
+        android:id="@+id/decoraters_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/venue_book"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:text=" decoraters"
+        android:onClick="decorator"
+        />
+
+    <Button
+        android:id="@+id/caterers_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/venue_book"
+        android:layout_alignStart="@+id/venue_book"
+        android:layout_below="@+id/decoraters_book"
+        android:layout_marginTop="25dp"
+        android:text="caterers"
+        android:onClick="caterers"
+        />
+
+    <Button
+        android:id="@+id/dj_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/decoraters_book"
+        android:layout_alignRight="@+id/decoraters_book"
+        android:layout_below="@+id/caterers_book"
+        android:text=" Dj"
+        android:onClick="Dj"
+        />
+
+    <Button
+        android:id="@+id/photographer_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/caterers_book"
+        android:layout_alignStart="@+id/caterers_book"
+        android:layout_below="@+id/dj_book"
+        android:layout_marginTop="20dp"
+        android:text=" photographer's"
+        android:onClick="photographers"
+        />
+
+    <Button
+        android:id="@+id/designers_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dj_book"
+        android:layout_alignRight="@+id/dj_book"
+        android:layout_below="@+id/photographer_book"
+        android:layout_marginTop="31dp"
+        android:text=" designers"
+        android:onClick="designers"
+        />
+
+    <Button
+        android:id="@+id/saloon_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/caterers_book"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/caterers_book"
+        android:layout_marginBottom="21dp"
+        android:text=" salon's"
+        android:onClick="salon"
+        />
+
+</RelativeLayout>

@@ -30,9 +30,6 @@ import static com.example.user.myapplication.user_home.venue_name;
 
 public class bookEvent extends AppCompatActivity {
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +45,13 @@ public class bookEvent extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseAuth  fauth=FirebaseAuth.getInstance();
         String email =fauth.getCurrentUser().getEmail().replace(".","");
-        database.getReference().child(email).child(String.valueOf(date)).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.getReference().child("Booked event").child(email).child(String.valueOf(date)).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
 
             public void onComplete(@NonNull Task<Void> task) {
 
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(bookEvent.this , "Data added" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(bookEvent.this , "Event Booked" , Toast.LENGTH_SHORT).show();
                     startActivity( new Intent(bookEvent.this , user_home.class));
                     finish();
                 }

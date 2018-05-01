@@ -20,27 +20,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class booked_list extends AppCompatActivity {
+public class admin_booked_list extends AppCompatActivity {
+
     ArrayList<final_event> book_list;
     RecyclerView book_recycle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booked_list);
+        setContentView(R.layout.activity_admin_booked_list);
         book_list = new ArrayList<>();
 
         book_recycle = findViewById(R.id.book_recycle);
 
-        book_recycle.setLayoutManager(new LinearLayoutManager(booked_list.this , LinearLayoutManager.VERTICAL, false));
+        book_recycle.setLayoutManager(new LinearLayoutManager(admin_booked_list.this , LinearLayoutManager.VERTICAL, false));
     }
 
     public void get_booked_list()
     {
         FirebaseAuth firebase = FirebaseAuth.getInstance();
-String email=firebase.getCurrentUser().getEmail().replace(".","");
+        String email=firebase.getCurrentUser().getEmail().replace(".","");
         FirebaseDatabase data =FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child("Booked event").child(email).addListenerForSingleValueEvent(new ValueEventListener() {
+        data.getReference().child("Booked event").addListenerForSingleValueEvent(new ValueEventListener() {
 
 
             @Override
@@ -50,13 +51,15 @@ String email=firebase.getCurrentUser().getEmail().replace(".","");
 
                 for (DataSnapshot data : dataSnapshot.getChildren())
                 {
-                    final_event details = data.getValue(final_event.class);
-                    System.out.println("rrrrrr");
-                    book_list.add(details);
+                    for (DataSnapshot data2 : dataSnapshot.getChildren()) {
+                        final_event details = data2.getValue(final_event.class);
+                        System.out.println("rrrrrr");
+                        book_list.add(details);
 
-                    Adapter adapter = new Adapter();
+                        admin_booked_list.Adapter adapter = new admin_booked_list.Adapter();
 
-                    book_recycle.setAdapter(adapter);
+                        book_recycle.setAdapter(adapter);
+                    }
                 }
             }
 
@@ -88,19 +91,21 @@ String email=firebase.getCurrentUser().getEmail().replace(".","");
         }
     }
 
-    public class Adapter extends RecyclerView.Adapter<view_holder>
+    public class Adapter extends RecyclerView.Adapter<admin_booked_list.view_holder>
     {
 
         @Override
-        public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public admin_booked_list.view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.date_cell,parent , false ));
+            admin_booked_list.view_holder v = new admin_booked_list.view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.date_cell,parent , false ));
 
-            return v ;
+            return  v ;
         }
 
+
+
         @Override
-        public void onBindViewHolder(view_holder holder, int position) {
+        public void onBindViewHolder(admin_booked_list.view_holder holder, int position) {
 
 
             final final_event data=book_list.get(position);
@@ -123,8 +128,8 @@ String email=firebase.getCurrentUser().getEmail().replace(".","");
                     String salon_loc=data.salon_loc;
                     String caterer_name=data.caterer_name;
                     String caterer_loc=data.caterer_loc;
-Intent i = new Intent(booked_list.this,view_book_event.class);
-i.putExtra("venue",venue_name+venue_loc);
+                    Intent i = new Intent(admin_booked_list.this,admin_view_book_event.class);
+                    i.putExtra("venue",venue_name+venue_loc);
                     i.putExtra("date",date);
                     i.putExtra("dj",dj_name+dj_loc);
                     i.putExtra("designer",designer_name+designer_loc);

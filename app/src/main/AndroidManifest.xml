@@ -59,16 +59,17 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".user_home" />
         <activity android:name=".view_book_event" />
-        <activity android:name=".booked_list"></activity>
-        <activity android:name=".viewbookedCaterersDetails"/>
-        <activity android:name=".viewbookedDecorDetails"/>
-        <activity android:name=".viewbookedDjDetails"/>
-        <activity android:name=".viewbookedDesignerDetails"/>
-        <activity android:name=".viewbookedSalonDetails"/>
-        <activity android:name=".viewbookedPhotographerDetails"/>
-        <activity android:name=".viewbookedvenueDetails"/>
-
-
+        <activity android:name=".booked_list" />
+        <activity android:name=".viewbookedCaterersDetails" />
+        <activity android:name=".viewbookedDecorDetails" />
+        <activity android:name=".viewbookedDjDetails" />
+        <activity android:name=".viewbookedDesignerDetails" />
+        <activity android:name=".viewbookedSalonDetails" />
+        <activity android:name=".viewbookedPhotographerDetails" />
+        <activity android:name=".viewbookedvenueDetails" />
+        <activity android:name=".admin_home" />
+        <activity android:name=".admin_booked_list" />
+        <activity android:name=".admin_view_booked_event"></activity>
     </application>
 
 </manifest>
